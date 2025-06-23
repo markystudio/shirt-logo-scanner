@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Multi-Marker AR</title>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;"
+    >
+
+      <!-- Marker 1 -->
+      <a-marker type="pattern" url="assets/pattern1.patt">
+        <a-video
+          src="#vid1"
+          width="1.5"
+          height="1.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <!-- Marker 2 -->
+      <a-marker type="pattern" url="assets/pattern2.patt">
+        <a-video
+          src="#vid2"
+          width="1.5"
+          height="1.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- Hidden video sources -->
+    <video id="vid1" src="assets/video1.mp4" loop autoplay muted playsinline style="display:none;"></video>
+    <video id="vid2" src="assets/video2.mp4" loop autoplay muted playsinline style="display:none;"></video>
+  </body>
+</html>
